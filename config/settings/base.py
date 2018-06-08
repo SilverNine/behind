@@ -39,7 +39,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://localhost/behind'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'behind',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -63,7 +70,6 @@ DJANGO_APPS = [
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
-    'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -72,6 +78,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'behind.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
+    'behind.images.apps.ImagesConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
