@@ -14,5 +14,9 @@ urlpatterns = [
         regex=r'^likes/$',
         view=views.ListAllLikes.as_view(),
         name='all_likes'
+    ), url(
+        regex=r'^$',
+        view=views.Feed.as_view(),
+        name='feed'
     )
 ]

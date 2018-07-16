@@ -22,3 +22,14 @@ class ListAllLikes(APIView):
         all_likes = models.Like.objects.all()
         serializer = serializers.LikeSerializer(all_likes, many=True)
         return Response(data=serializer.data)
+
+
+class Feed(APIView):
+    def get(self, request, format=None):
+        user = request.user
+        following_users = user.following.all()
+
+        for following_user in following_users:
+            print(following_user.images.all())
+
+        return Response(status=200)
