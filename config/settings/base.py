@@ -75,6 +75,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    'taggit', #Tags for the photos
 ]
 LOCAL_APPS = [
     'behind.users.apps.UsersAppConfig',
@@ -246,3 +247,5 @@ SOCIALACCOUNT_ADAPTER = 'behind.users.adapters.SocialAccountAdapter'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+TAGGIT_CASE_INSENSITIVE = True
